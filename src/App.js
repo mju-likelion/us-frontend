@@ -19,11 +19,9 @@
 // import Button from '@material-ui/core/Button';
 // import PersonIcon from '@material-ui/icons/Person';
 
-
 // function App() {
 //   //state
 //   const [count, setCount] = useState(0);
-
 
 //   return (
 //     <div className="App" style={{flex: 1}}>
@@ -49,7 +47,7 @@
 //             <Button variant="outlined" style={{marginRight: '10px', marginLeft: '10px'}}>SIGN UP</Button>
 //             <IconButton aria-label="show 4 new mails" color="black" style={{marginRight: '10px', marginLeft: '10px'}}>
 //               {/* badgeContent = 알림 수 */}
-//               <Badge badgeContent={3} color="secondary"> 
+//               <Badge badgeContent={3} color="secondary">
 //                 <MailIcon />
 //               </Badge>
 //             </IconButton>
