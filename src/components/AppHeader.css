@@ -1,0 +1,28 @@
+.App-header {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  /* flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+.btn-text {
+  border-bottom: 2px solid currentColor;
+}
+
+.tools {
+  background-color: white;
+  border: none;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.tools:hover {
+  color: #84E0CB;
+  background-color: white;
+}
