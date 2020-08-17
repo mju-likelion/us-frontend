@@ -1,8 +1,8 @@
 import React from "react";
-import TipRank from "../components/TipRank";
-import ReviewRank from "../components/ReviewRank";
-import UserRank from "../components/UserRank";
-import Recommend from "../components/Recommend";
+import TipRank from "./TipRank";
+import ReviewRank from "./ReviewRank";
+import UserRank from "./UserRank";
+import Recommend from "./Recommend";
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
