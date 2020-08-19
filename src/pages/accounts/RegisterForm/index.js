@@ -1,5 +1,6 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import Axios from "axios";
 //MY MODULES
 import UserPreferences from "./UserPreferences";
 import UserDetails from "./UserDetails";
@@ -78,11 +79,15 @@ export default (props) => {
   const handleCloseSnackbar = () => {
     setOpen(false);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (activeStep < steps.length - 1) handleNext();
     else {
       setCompleted(true);
+    }
+    if (activeStep === 2) {
+      Axios.post("http://localhost:8000/accounts/signup/", state.user);
     }
   };
 
