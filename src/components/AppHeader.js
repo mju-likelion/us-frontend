@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./AppHeader.css";
+import { Link } from 'react-router-dom';
 //UI import
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -174,7 +175,9 @@ function AppHeader() {
           <MenuItem onClick={handleClose} style={{backgroundColor: '#84E0CB', color: 'white'}}>마이페이지</MenuItem>
           </Menu>
           <Typography className={classes.title} variant="h6" noWrap>
+            <Link to="/">
             <img src={ require('./logo-us.svg') } />우리
+            </Link>
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
