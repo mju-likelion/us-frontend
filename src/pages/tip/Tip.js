@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReviewBar from './ReviewBar'
-import ReviewContent from './ReviewContent'
+import TipBar from './TipBar'
+import TipContent from './TipContent'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,33 +15,33 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const revData = [
+const tipData = [
   ['User1', 'title1', 'content1', 100, 150, 1],
   ['User2', 'title2', 'content2', 200, 250, 2],
   ['User3', 'title3', 'content3', 300, 350, 3],
   ['User4', 'title4', 'content4', 400, 450, 4],
-]
+];
 
 
-function Review() {
+function Tip() {
   const classes = useStyles();
 
-  const revList = revData.map((review) => 
-    <ReviewContent userName={review[0]} title={review[1]} content={review[2]} like={review[3]} comment={review[4]} grade={review[5]} />
+  const tipList = tipData.map((tip) => 
+    <TipContent userName={tip[0]} title={tip[1]} content={tip[2]} like={tip[3]} comment={tip[4]} grade={tip[5]} />
   );
   return (
     <div>
-      <ReviewBar />
+      <TipBar />
       <br />
       <div className={classes.contents}>
-        {revList}
+        {tipList}
       </div>
       <div className={classes.contents}>
-        {revList}
-      </div>
+        {tipList}
+      </div> 
     </div>
-  );
-}
+    );
+  }
 
 
-export default Review;
+export default Tip;

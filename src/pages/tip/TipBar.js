@@ -7,7 +7,7 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
-  reviewBar: {
+  tipBar: {
     width: '80%',
   },
   button: {
@@ -26,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ReviewBar() {
+function TipBar() {
   const classes = useStyles();
   return (
     <div>
-      <Box className={classes.reviewBar} mx="auto">
+      <Box className={classes.tipBar} mx="auto">
         <Box className={classes.search}>  
           <InputBase 
           placeholder="Hello"
@@ -58,4 +58,4 @@ function ReviewBar() {
 
 
 
-export default ReviewBar;
+export default TipBar;

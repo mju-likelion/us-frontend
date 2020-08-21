@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function ReviewContent(props) {
+function TipContent(props) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -73,4 +73,4 @@ function ReviewContent(props) {
 }
 
 
-export default ReviewContent;
+export default TipContent;

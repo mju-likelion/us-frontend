@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderStyle: 'inset', 
     borderTop: '0',
+    borderLeft: '0',
+    borderRight: '0',
   },
 
   menuButton: {
