@@ -19,16 +19,10 @@ const useStyles = makeStyles({
   },
 });
 
-const dummy_prop = {
-  title: '상품',
-  content: '상품설명입니다.',
-  like: 5,
-  comment: 10,
-}
 
-function Recommend() {
+
+function Recommend(props) {
   const classes = useStyles();
-  const {title, content, like, comment} = dummy_prop
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -39,19 +33,19 @@ function Recommend() {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            {title}
+            {props.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {content}
+            {props.content}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          <FavoriteIcon style={{color: '#84E0CB'}} /> {like}
+          <FavoriteIcon style={{color: '#84E0CB'}} /> {props.like}
         </Button>
         <Button size="small" color="primary">
-          <CommentIcon style={{color: '#84E0CB'}} /> {comment}
+          <CommentIcon style={{color: '#84E0CB'}} /> {props.comment}
         </Button>
       </CardActions>
     </Card>

@@ -9,17 +9,13 @@
   color: white;
 }
 
-
-.btn-text {
-  border-bottom: 2px solid currentColor;
+.active {
+  
 }
 
-.tools {
-  background-color: white;
-  border: none;
-  margin-right: 10px;
-  margin-left: 10px;
-  transition: 0.3s;
+.btnText {
+  border-bottom: 2px solid currentColor;
+  text-decoration: none;
 }
 
 .tools:hover {
