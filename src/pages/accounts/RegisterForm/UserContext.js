@@ -10,7 +10,7 @@ export default (props) => {
       confirmPassword: "",
       birthdate: new Date().toISOString().slice(0, 10),
       bio: "",
-      website: "",
+      phone_number: "",
       acceptTerms: false,
       newsletter: false,
     },

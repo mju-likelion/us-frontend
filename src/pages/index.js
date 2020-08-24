@@ -1,10 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import AppLayout from "../components/AppLayout";
-import Home from "./home/Home";
+import Home from "./Home/Home";
 import AccountsRoutes from "./accounts";
 import Review from "./review/Review";
-import Tip from "./tip/Tip"
+import Tip from "./tip/Tip";
 
 function Root() {
   return (

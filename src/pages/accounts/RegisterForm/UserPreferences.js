@@ -32,12 +32,12 @@ export default (props) => {
       </Grid>
       <Grid item xs={12}>
         <TextField
-          id="website"
-          label="address"
-          name="website"
-          type="address"
+          id="phone_number"
+          label="phone_number"
+          name="phone_number"
+          type="phone_number"
           value={user.website}
-          placeholder="Type your address"
+          placeholder="Type your phone_number"
           helperText=""
           variant="outlined"
           margin="normal"
