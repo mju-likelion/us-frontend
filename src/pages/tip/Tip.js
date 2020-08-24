@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const tipData = [
-  ['User1', 'title1', 'content1', 100, 150, 1],
-  ['User2', 'title2', 'content2', 200, 250, 2],
-  ['User3', 'title3', 'content3', 300, 350, 3],
-  ['User4', 'title4', 'content4', 400, 450, 4],
+  ['User1', '꿀팁공유한다. 1', 'content1', 100, 150, 1],
+  ['User2', '꿀팁공유한다. 2', 'content2', 200, 250, 2],
+  ['User3', '꿀팁공유한다. 3', 'content3', 300, 350, 3],
+  ['User4', '꿀팁공유한다. 4', 'content4', 400, 450, 4],
 ];
 
 

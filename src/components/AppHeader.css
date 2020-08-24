@@ -9,13 +9,12 @@
   color: white;
 }
 
-.active {
-  
+.activation {
+  background-color: #84E0CB;
 }
 
 .btnText {
   border-bottom: 2px solid currentColor;
-  text-decoration: none;
 }
 
 .tools:hover {

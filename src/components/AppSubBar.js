@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white', 
     borderStyle: 'inset',
     border: '0',
-  }
+  },
   
 }))
 
@@ -38,9 +38,9 @@ function AppSubBar() {
     <div className="AppSubBar">
       <AppBar position="static" className={classes.subBar} elevation={0}>
         <Toolbar>
-          <NavLink to="review" style={{textDecoration: 'none'}}><Button color="black" className="tools"><h4 className="btnText">우리의 리뷰</h4></Button></NavLink>
+          <NavLink to="review" activeClassName="activation" style={{textDecoration: 'none'}}><Button className="tools"><h4 className="btnText">우리의 리뷰</h4></Button></NavLink>
           <Button color="black" className="tools"><h4 className="btnText">우리의 장터</h4></Button>
-          <NavLink to="tip" style={{textDecoration: 'none'}}><Button color="black" className="tools"><h4 className="btnText">우리의 꿀팁</h4></Button></NavLink>
+          <NavLink to="tip" activeClassName="activation" style={{textDecoration: 'none'}}><Button className="tools"><h4 className="btnText">우리의 꿀팁</h4></Button></NavLink>
         </Toolbar>
       </AppBar>
       <div className={classes.text}>우리와 함께 삶의 질을 높여보세요!</div>
