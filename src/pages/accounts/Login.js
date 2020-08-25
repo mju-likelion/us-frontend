@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import Axios from "axios";
-import useLocalStorage from "./utils/useLocalStorage";
+import { useAppContext } from "../../store";
+import { setToken } from "../../store";
 
 export default function Signup() {
-  const [jwtToken, setJwtToken] = useLocalStorage("jwtToken", "");
+  const { dispatch } = useAppContext();
 
   const [inputs, setInputs] = useState({ username: "", password: "" });
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    Axios.post("http://localhost:8000/accounts/token/", inputs)
+    const data = inputs;
+
+    Axios.post("http://localhost:8000/accounts/token/", data)
       .then((response) => {
-        setJwtToken(jwtToken);
+        const {
+          data: { token: jwtToken },
+        } = response;
+
+        dispatch(setToken(jwtToken));
       })
       .catch((error) => {
         console.log("error :", error);

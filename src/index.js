@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import Root from "./pages/index.js";
+import { AppProvider } from "./store";
+import Root from "./pages/index";
 
 ReactDOM.render(
   <BrowserRouter>
-    <Root />
+    <AppProvider>
+      <Root />
+    </AppProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
