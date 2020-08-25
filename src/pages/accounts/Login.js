@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useAppContext } from "../../store";
-import { setToken } from "../../store";
+import { setToken } from "store";
 
 export default function Signup() {
   const { dispatch } = useAppContext();
