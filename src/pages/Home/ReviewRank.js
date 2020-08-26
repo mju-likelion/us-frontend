@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const dummy_prop = {
-  first: '리뷰1',
-  second: '리뷰2',
-  third: '리뷰3',
-}
 
 
 function ReviewRank(props) {
-  const {first, second, third} = dummy_prop
   return (
     <div>
       <h3>실시간 인기 리뷰</h3>

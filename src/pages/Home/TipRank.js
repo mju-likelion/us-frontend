@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
-
-
-const dummy_prop = {
-  first: '꿀팁1',
-  second: '꿀팁2',
-  third: '꿀팁3',
-}
-
+import React from 'react';
 
 function TipRank(props) {
-  const {first, second, third} = dummy_prop
   return (
     <div>
       <h3>실시간 인기 꿀팁</h3>

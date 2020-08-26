@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route } from "react-router-dom";
-import { withStyles, makeStyles } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,9 +44,9 @@ function Entrance() {
     <div>
       <br /> <br /> <br />
       <div className={classes.content}>
-        <Button className={classes.btn}>중고거래</Button>
-        <Button className={classes.btn}>물물교환</Button>
-        <Button className={classes.btn}>공동구매</Button>
+        <NavLink to="/marketplace/used_trading" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>중고거래</Button></NavLink>
+        <NavLink to="/marketplace/barter" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>물물교환</Button></NavLink>
+        <NavLink to="/marketplace/group_buying" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>공동구매</Button></NavLink>
       </div>
       <div className={classes.content}>
         <h3 className={classes.explain}>우리와 편하게 <br /> 중고거래를 해보세요!</h3>

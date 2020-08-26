@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 
-
-const dummy_prop = {
-  first: 'User1',
-  second: 'User2',
-  third: 'User3',
-}
-
-
 function UserRank(props) {
-  const {first, second, third} = dummy_prop
   return (
     <div>
       <h3>이달의 인기 멤버</h3> 

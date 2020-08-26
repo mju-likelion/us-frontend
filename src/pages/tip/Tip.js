@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TipBar from './TipBar'
 import TipContent from './TipContent'
 import { makeStyles } from '@material-ui/core/styles';
