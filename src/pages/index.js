@@ -6,6 +6,7 @@ import AccountsRoutes from "./accounts";
 import Review from "./review/Review";
 import Tip from "./tip/Tip";
 import Routes from "./marketplace/index";
+import LoginRequiredRoute from "utils/LoginRequiredRoute";
 
 function Root() {
   return (

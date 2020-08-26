@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useAppContext } from "../../store";
 import { setToken } from "store";
+import { useHistory, useLocation } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const { dispatch } = useAppContext();
 
   const [inputs, setInputs] = useState({ username: "", password: "" });
+
+  const location = useLocation();
+
+  const history = useHistory();
+
+  const { from: loginRedirectUrl } = location.state || {
+    from: { pathname: "/" },
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +29,7 @@ export default function Signup() {
         } = response;
 
         dispatch(setToken(jwtToken));
+        history.push(loginRedirectUrl);
       })
       .catch((error) => {
         console.log("error :", error);
