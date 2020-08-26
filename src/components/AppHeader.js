@@ -203,14 +203,14 @@ function AppHeader() {
             <Button className={classes.signUp}>SIGN UP</Button>
             <IconButton
               aria-label="show 4 new mails"
-              color="black"
+              color="default"
               style={{ marginRight: "10px", marginLeft: "10px" }}
             >
               <Badge badgeContent={3} color="secondary">
                 <MailIcon style={{ color: "#84E0CB" }} />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="black">
+            <IconButton aria-label="show 17 new notifications" color="default">
               <PersonIcon style={{ color: "#84E0CB" }} />
             </IconButton>
           </div>

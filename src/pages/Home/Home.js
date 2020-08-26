@@ -42,24 +42,41 @@ const userRankData = [["user1", "user2", "user3"]];
 function Home() {
   const classes = useStyles();
 
-  const recList = recData.map((rec) => (
-    <Recommend title={rec[0]} content={rec[1]} like={rec[2]} comment={rec[3]} />
+  const recList = recData.map((rec, index) => (
+    <Recommend
+      title={rec[0]}
+      content={rec[1]}
+      like={rec[2]}
+      comment={rec[3]}
+      key={index}
+    />
   ));
 
-  const reviewRankList = reviewRankData.map((reviewRank) => (
+  const reviewRankList = reviewRankData.map((reviewRank, index) => (
     <ReviewRank
       first={reviewRank[0]}
       second={reviewRank[1]}
       third={reviewRank[2]}
+      key={index}
     />
   ));
 
-  const tipRankList = tipRankData.map((tipRank) => (
-    <TipRank first={tipRank[0]} second={tipRank[1]} third={tipRank[2]} />
+  const tipRankList = tipRankData.map((tipRank, index) => (
+    <TipRank
+      first={tipRank[0]}
+      second={tipRank[1]}
+      third={tipRank[2]}
+      key={index}
+    />
   ));
 
-  const userRankList = userRankData.map((userRank) => (
-    <UserRank first={userRank[0]} second={userRank[1]} third={userRank[2]} />
+  const userRankList = userRankData.map((userRank, index) => (
+    <UserRank
+      first={userRank[0]}
+      second={userRank[1]}
+      third={userRank[2]}
+      key={index}
+    />
   ));
 
   return (

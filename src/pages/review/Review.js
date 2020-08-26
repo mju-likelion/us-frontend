@@ -25,7 +25,7 @@ const revData = [
 function Review() {
   const classes = useStyles();
 
-  const revList = revData.map((review) => (
+  const revList = revData.map((review, index) => (
     <ReviewContent
       userName={review[0]}
       title={review[1]}
@@ -33,6 +33,7 @@ function Review() {
       like={review[3]}
       comment={review[4]}
       grade={review[5]}
+      key={index}
     />
   ));
   return (
