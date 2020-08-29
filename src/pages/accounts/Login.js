@@ -31,6 +31,12 @@ export default function Login() {
           data: { token: jwtToken },
         } = response;
 
+        notification.open({
+          message: "회원가입 성공",
+          description: "로그인 페이지로 이동합니다.",
+          icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+        });
+
         dispatch(setToken(jwtToken));
         history.push(loginRedirectUrl);
       })
