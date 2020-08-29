@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from "react-router-dom";
 import Entrance from "./Entrance";
-import UsedTrading from './UsedTrading';
-import Barter from './Barter';
-import GroupBuying from './GroupBuying';
+import UsedTrading from './UsedTrading/UsedTrading';
+import Barter from './Barter/Barter';
+import GroupBuying from './GroupBuying/GroupBuying';
 
 
 function Routes({ match }) {

@@ -1,7 +1,7 @@
 import React from 'react';
-import TipBar from './TipBar'
-import TipContent from './TipContent'
 import { makeStyles } from '@material-ui/core/styles';
+import UsedTradingBar from './UsedTradingBar';
+import UsedTradingContent from './UsedTradingContent';
 
 const useStyles = makeStyles((theme) => ({
   contents: {
@@ -22,15 +22,15 @@ const tipData = [
   ['User4', '꿀팁공유한다. 4', 'content4', 400, 450, 4],
 ];
 
-function Tip() {
+function UsedTrading() {
   const classes = useStyles();
 
   const tipList = tipData.map((tip) => 
-    <TipContent userName={tip[0]} title={tip[1]} content={tip[2]} like={tip[3]} comment={tip[4]} grade={tip[5]} />
+    <UsedTradingContent userName={tip[0]} title={tip[1]} content={tip[2]} like={tip[3]} comment={tip[4]} grade={tip[5]} />
   );
   return (
     <div>
-      <TipBar />
+      <UsedTradingBar />
       <br />
       <div className={classes.contents}>
         {tipList}
@@ -38,9 +38,10 @@ function Tip() {
       <div className={classes.contents}>
         {tipList}
       </div> 
+      <h1>Hello UsedTrading !</h1>
     </div>
-    );
-  }
+  );
+}
 
 
-export default Tip;
+export default UsedTrading;

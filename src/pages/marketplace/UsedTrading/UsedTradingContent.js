@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
-function TipContent(props) {
+function UsedTradingContent(props) {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
+    <div>
+          <Card className={classes.root}>
       <div className={classes.user}>
         <Avatar className={classes.avatar} alt="Remy Sharp" src="https://lh3.googleusercontent.com/proxy/6g0GSBMtFMLwJj3-OcJWmpuGMmIa0XqJweIWODebNcSBFEGTp_az2IeCRzGAQNYNhETievrHs7BHP0lcUqcKDIhCdJbh_5wIdzsm6aKyCsqTPFqB3dT68MpbdnBkIaoWtQhN2lRUXWbb8F6yAsNiYBQ_QShE1GNq22b69qVRDQ" />
         {props.userName}
@@ -69,8 +69,9 @@ function TipContent(props) {
         </Button>
       </CardActions>
     </Card>
+    </div>
   );
 }
 
 
-export default TipContent;
+export default UsedTradingContent;
