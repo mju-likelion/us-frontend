@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Entrance from "./Entrance";
 import UsedTrading from './UsedTrading/UsedTrading';
 import Barter from './Barter/Barter';
-import GroupBuying from './GroupBuying/GroupBuying';
 
 
 function Routes({ match }) {
@@ -12,7 +11,6 @@ function Routes({ match }) {
       <Route exact path={match.url + "/"} component={Entrance} />
       <Route exact path={match.url + "/used_trading"} component={UsedTrading} />
       <Route exact path={match.url + "/barter"} component={Barter} />
-      <Route exact path={match.url + "/group_buying"} component={GroupBuying} />
     </>
   );
 }

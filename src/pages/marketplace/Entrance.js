@@ -46,12 +46,10 @@ function Entrance() {
       <div className={classes.content}>
         <NavLink to="/marketplace/used_trading" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>중고거래</Button></NavLink>
         <NavLink to="/marketplace/barter" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>물물교환</Button></NavLink>
-        <NavLink to="/marketplace/group_buying" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>공동구매</Button></NavLink>
       </div>
       <div className={classes.content}>
         <h3 className={classes.explain}>우리와 편하게 <br /> 중고거래를 해보세요!</h3>
         <h3 className={classes.explain}>우리와 편하게 <br /> 물물교환을 해보세요!</h3>
-        <h3 className={classes.explain}>우리와 편하게 <br /> 공동구매를 해보세요!</h3>
       </div>
     </div>
   );
