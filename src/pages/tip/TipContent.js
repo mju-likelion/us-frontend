@@ -1,23 +1,5 @@
-<<<<<<< HEAD
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-
-import Rating from '@material-ui/lab/Rating';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import CommentIcon from '@material-ui/icons/Comment';
-
-=======
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
->>>>>>> 4a9d33543e33dbca5b94267cee3dc43532327d2d
 
 import Rating from "@material-ui/lab/Rating";
 import Card from "@material-ui/core/Card";
@@ -54,15 +36,11 @@ function TipContent(props) {
   return (
     <Card className={classes.root}>
       <div className={classes.user}>
-<<<<<<< HEAD
-        <Avatar className={classes.avatar} alt="Remy Sharp" src="https://lh3.googleusercontent.com/proxy/6g0GSBMtFMLwJj3-OcJWmpuGMmIa0XqJweIWODebNcSBFEGTp_az2IeCRzGAQNYNhETievrHs7BHP0lcUqcKDIhCdJbh_5wIdzsm6aKyCsqTPFqB3dT68MpbdnBkIaoWtQhN2lRUXWbb8F6yAsNiYBQ_QShE1GNq22b69qVRDQ" />
-=======
         <Avatar
           className={classes.avatar}
           alt="Remy Sharp"
           src="https://lh3.googleusercontent.com/proxy/6g0GSBMtFMLwJj3-OcJWmpuGMmIa0XqJweIWODebNcSBFEGTp_az2IeCRzGAQNYNhETievrHs7BHP0lcUqcKDIhCdJbh_5wIdzsm6aKyCsqTPFqB3dT68MpbdnBkIaoWtQhN2lRUXWbb8F6yAsNiYBQ_QShE1GNq22b69qVRDQ"
         />
->>>>>>> 4a9d33543e33dbca5b94267cee3dc43532327d2d
         {props.userName}
       </div>
       <Rating
