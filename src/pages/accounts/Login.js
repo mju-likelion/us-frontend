@@ -2,11 +2,23 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useAppContext } from "../../store";
 import { setToken } from "store";
+import { useHistory, useLocation } from "react-router-dom";
+import "./login.css";
+import { notification } from "antd";
+import { SmileOutlined, FrownOutlined } from "@ant-design/icons";
 
-export default function Signup() {
+export default function Login() {
   const { dispatch } = useAppContext();
 
   const [inputs, setInputs] = useState({ username: "", password: "" });
+
+  const location = useLocation();
+
+  const history = useHistory();
+
+  const { from: loginRedirectUrl } = location.state || {
+    from: { pathname: "/" },
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -19,12 +31,28 @@ export default function Signup() {
           data: { token: jwtToken },
         } = response;
 
+        notification.open({
+          message: "회원가입 성공",
+          description: "로그인 페이지로 이동합니다.",
+          icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+          duration: 2.5,
+        });
+
         dispatch(setToken(jwtToken));
+        history.push(loginRedirectUrl);
       })
       .catch((error) => {
-        console.log("error :", error);
+        if (error.response) {
+          notification.open({
+            message: "로그인 실패",
+            description: "아이디/암호를 확인해주세요.",
+            icon: <FrownOutlined style={{ color: "#ff3333" }} />,
+            duration: 2.5,
+          });
+        }
       });
   };
+
   const onChange = (e) => {
     const { name, value } = e.target;
     setInputs((prev) => ({
@@ -34,15 +62,36 @@ export default function Signup() {
   };
 
   return (
-    <div>
+    <div className="container">
+      <h2>로그인</h2>
       <form onSubmit={onSubmit}>
-        <div>
-          <input type="text" name="username" onChange={onChange} />
+        <div className="group">
+          <input
+            id="UserName"
+            required
+            type="text"
+            name="username"
+            minLength="3"
+            maxLength="20"
+            onChange={onChange}
+          />
+          <span className="bar"></span>
+          <label htmlFor="UserName">User Name</label>
         </div>
-        <div>
-          <input type="password" name="password" onChange={onChange} />
+        <div className="group">
+          <input
+            id="password"
+            required
+            type="password"
+            name="password"
+            minLength="6"
+            maxLength="20"
+            onChange={onChange}
+          />
+          <span className="bar"></span>
+          <label htmlFor="password">Password</label>
         </div>
-        <input type="submit" value="로그인" />
+        <input type="submit" value="로그인" className="button" />
       </form>
     </div>
   );
