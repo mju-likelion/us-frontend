@@ -35,6 +35,7 @@ export default function Login() {
           message: "회원가입 성공",
           description: "로그인 페이지로 이동합니다.",
           icon: <SmileOutlined style={{ color: "#108ee9" }} />,
+          duration: 2.5,
         });
 
         dispatch(setToken(jwtToken));
@@ -46,6 +47,7 @@ export default function Login() {
             message: "로그인 실패",
             description: "아이디/암호를 확인해주세요.",
             icon: <FrownOutlined style={{ color: "#ff3333" }} />,
+            duration: 2.5,
           });
         }
       });
@@ -61,7 +63,7 @@ export default function Login() {
 
   return (
     <div className="container">
-      <h2>Login</h2>
+      <h2>로그인</h2>
       <form onSubmit={onSubmit}>
         <div className="group">
           <input
@@ -73,7 +75,6 @@ export default function Login() {
             maxLength="20"
             onChange={onChange}
           />
-          <span className="highlight"></span>
           <span className="bar"></span>
           <label htmlFor="UserName">User Name</label>
         </div>
@@ -87,11 +88,10 @@ export default function Login() {
             maxLength="20"
             onChange={onChange}
           />
-          <span className="highlight"></span>
           <span className="bar"></span>
           <label htmlFor="password">Password</label>
         </div>
-        <input type="submit" value="로그인" />
+        <input type="submit" value="로그인" className="button" />
       </form>
     </div>
   );
