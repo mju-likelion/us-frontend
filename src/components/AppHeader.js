@@ -199,8 +199,12 @@ function AppHeader() {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button className={classes.logIn}>LOG IN</Button>
-            <Button className={classes.signUp}>SIGN UP</Button>
+            <Button className={classes.logIn} href="/accounts/login">
+              LOG IN
+            </Button>
+            <Button className={classes.signUp} href="/accounts/signup">
+              SIGN UP
+            </Button>
             <IconButton
               aria-label="show 4 new mails"
               color="default"
@@ -210,7 +214,11 @@ function AppHeader() {
                 <MailIcon style={{ color: "#84E0CB" }} />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="default">
+            <IconButton
+              aria-label="show 17 new notifications"
+              color="default"
+              href="/accounts/profile"
+            >
               <PersonIcon style={{ color: "#84E0CB" }} />
             </IconButton>
           </div>
