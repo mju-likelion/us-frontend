@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-import Rating from "@material-ui/lab/Rating";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -40,15 +39,10 @@ function UsedTradingContent(props) {
           <Avatar
             className={classes.avatar}
             alt="Remy Sharp"
-            src="https://lh3.googleusercontent.com/proxy/6g0GSBMtFMLwJj3-OcJWmpuGMmIa0XqJweIWODebNcSBFEGTp_az2IeCRzGAQNYNhETievrHs7BHP0lcUqcKDIhCdJbh_5wIdzsm6aKyCsqTPFqB3dT68MpbdnBkIaoWtQhN2lRUXWbb8F6yAsNiYBQ_QShE1GNq22b69qVRDQ"
+            src=""
           />
           {props.userName}
-        </div>
-        <Rating
-          name="half-rating"
-          defaultValue={props.grade}
-          style={{ marginLeft: "15px", marginTop: "5px" }}
-        />
+        </div> <br />
         <CardActionArea>
           <CardMedia>
             <img src={require("./명진당.jpg")} alt="예시 사진" />

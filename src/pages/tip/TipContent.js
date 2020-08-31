@@ -39,7 +39,7 @@ function TipContent(props) {
         <Avatar
           className={classes.avatar}
           alt="Remy Sharp"
-          src="https://lh3.googleusercontent.com/proxy/6g0GSBMtFMLwJj3-OcJWmpuGMmIa0XqJweIWODebNcSBFEGTp_az2IeCRzGAQNYNhETievrHs7BHP0lcUqcKDIhCdJbh_5wIdzsm6aKyCsqTPFqB3dT68MpbdnBkIaoWtQhN2lRUXWbb8F6yAsNiYBQ_QShE1GNq22b69qVRDQ"
+          src=""
         />
         {props.userName}
       </div>
