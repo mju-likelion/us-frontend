@@ -1,23 +1,17 @@
 import React, { Fragment, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Axios from "axios";
-//MY MODULES
 import UserPreferences from "./UserPreferences";
 import UserDetails from "./UserDetails";
 import UserSummary from "./UserSummary";
 import FormComplete from "./FormComplete";
-
-//GENERAL
 import { Box, Typography, Snackbar, SnackbarContent } from "@material-ui/core";
 import ErrorIcon from "@material-ui/icons/Error";
-//STEPPER
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
-//FORM
 import Button from "@material-ui/core/Button";
-//CONTEXT
 import { UserContext } from "./UserContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -56,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
 
 const steps = ["Basic information", "User details", "Summary"];
 
-//MAIN COMPONENT
 export default (props) => {
   const [completed, setCompleted] = React.useState(false);
   const classes = useStyles();
@@ -111,7 +104,7 @@ export default (props) => {
   };
 
   const handleChange = (e) => {
-    //PASSWORD MATCHING
+    //비밀번호 확인
     if (
       e.target.name === "confirmPassword" &&
       e.target.value !== state.user.password
@@ -124,7 +117,7 @@ export default (props) => {
       const confirm = e.target.form.querySelector(
         "input[name='confirmPassword']"
       );
-      // WHEN WE CHANGE PASSWORD, WE WANT TO VALIDATE CONFIRM PASSWORD AS WELL
+
       if (e.target.value === state.user.confirmPassword) {
         delete errors[confirm.name];
         confirm.setCustomValidity("");
@@ -134,7 +127,6 @@ export default (props) => {
       }
     }
     if (e.target.validity.valid) {
-      //OTHER ELEMENTS
       delete errors[e.target.name];
     } else {
       errors[e.target.name] = e.target.validationMessage;

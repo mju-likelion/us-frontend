@@ -1,8 +1,6 @@
 import React, { useContext, Fragment } from "react";
 import { UserContext } from "./UserContext";
 import { makeStyles } from "@material-ui/core/styles";
-
-//GENERAL
 import {
   Typography,
   Grid,
@@ -17,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
 }));
-// SUMMARY COMPONENT
 export default (props) => {
   const classes = useStyles();
   const [state] = useContext(UserContext);

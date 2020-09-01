@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
-//GENERAL
 import { TextField, Grid } from "@material-ui/core";
 import { isWidthDown } from "@material-ui/core/withWidth";
-//CONTEXT
 import { UserContext } from "./UserContext";
 
 export default (props) => {

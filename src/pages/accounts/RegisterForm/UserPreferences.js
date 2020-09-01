@@ -1,10 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "./UserContext";
-
-//GENERAL
 import { TextField, Grid } from "@material-ui/core";
-
-//USER PREFERENCES
 export default (props) => {
   const [state] = useContext(UserContext);
   const { user } = state;

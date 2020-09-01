@@ -1,11 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
-//REGISTER FORM
 import RegisterForm from "./RegisterForm";
-//HEADER
-import Typography from "@material-ui/core/Typography";
-//CONTEXT
 import UserContextProvider from "./RegisterForm/UserContext";
 const useStyles = makeStyles((theme) => ({
   root: {
