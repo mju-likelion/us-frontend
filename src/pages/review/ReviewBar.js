@@ -39,21 +39,34 @@ function ReviewBar() {
           />
           <SearchIcon display="inline" />
         </Box>
-        <Box>
-          <Button
-            className={classes.button}
-            variant="contained"
-            disableElevation
-          >
-            인기순
-          </Button>
-          <Button
-            className={classes.button}
-            variant="contained"
-            disableElevation
-          >
-            최신순
-          </Button>
+        <Box display="flex">
+          <Box flexShrink={0}>
+            <Button
+              className={classes.button}
+              variant="contained"
+              disableElevation
+            >
+              인기순
+            </Button>
+          </Box>
+          <Box width="100%">
+            <Button
+              className={classes.button}
+              variant="contained"
+              disableElevation
+            >
+              최신순
+            </Button>
+          </Box>
+          <Box flexShrink={0}>
+            <Button
+              className={classes.button}
+              variant="contained"
+              disableElevation
+            >
+              글쓰기
+            </Button>
+          </Box>
         </Box>
       </Box>
     </div>

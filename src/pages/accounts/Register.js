@@ -43,12 +43,8 @@ function App() {
     <UserContextProvider>
       <Grid container className={classes.root}>
         <Grid item className={classes.header} xs={12} md={4}>
-          <Typography variant="h3" className={classes.title}>
-            Registration
-          </Typography>
-          <Typography variant="h5" className={classes.subtitle}>
-            Complete all 3 steps to finish registration process
-          </Typography>
+          <Typography variant="h3" className={classes.title}></Typography>
+          <Typography variant="h5" className={classes.subtitle}></Typography>
         </Grid>
         <Grid item xs={12} md={8}>
           <RegisterForm />
