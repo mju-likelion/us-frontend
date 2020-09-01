@@ -63,6 +63,7 @@ function ReviewBar() {
               className={classes.button}
               variant="contained"
               disableElevation
+              href="/review/post"
             >
               글쓰기
             </Button>
