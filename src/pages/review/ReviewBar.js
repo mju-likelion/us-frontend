@@ -8,7 +8,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   reviewBar: {
-    width: "80%",
+    width: "40%",
   },
   button: {
     color: "white",
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchBar: {
     border: "3px solid #84E0CB",
+    marginBottom: "10px",
   },
 }));
 

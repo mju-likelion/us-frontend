@@ -17,16 +17,12 @@ const apiUrl = "http://localhost:8000/api/posts/";
 
 const useStyles = makeStyles((theme) => ({
   contents: {
-    display: "flex",
-    justifyContent: "center",
-    columnGap: "10px",
-    rowGap: "50px",
-    width: "80%",
+    width: "40%",
     margin: "auto",
-    marginTop: "10px",
   },
   root: {
-    maxWidth: 345,
+    marginTop: "10px",
+    marginBottom: "40px",
   },
 
   user: {
@@ -39,9 +35,9 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(3),
     height: theme.spacing(3),
     marginLeft: "15px",
+    marginBottom: "10px",
+    marginRight: "10px",
   },
-
-  title: {},
 }));
 
 function PostList() {
@@ -72,7 +68,7 @@ function PostList() {
               <div className={classes.user}>
                 <Avatar
                   className={classes.avatar}
-                  alt="Remy Sharp"
+                  alt="User"
                   src={`http://localhost:8000` + review.author.avatar_url}
                 />
                 {review.author.username}
@@ -82,7 +78,7 @@ function PostList() {
                   <img
                     src={review.photo}
                     alt={review.title}
-                    style={{ width: "300px" }}
+                    style={{ width: "100%" }}
                   />
                 </CardMedia>
                 <CardContent>
@@ -93,13 +89,6 @@ function PostList() {
                     className={classes.title}
                   >
                     {review.title}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="textSecondary"
-                    component="p"
-                  >
-                    {review.caption}
                   </Typography>
                 </CardContent>
               </CardActionArea>
