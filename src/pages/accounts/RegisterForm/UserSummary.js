@@ -23,7 +23,7 @@ export default (props) => {
     <Fragment>
       <Grid container className={classes.summary}>
         <Grid item xs={12}>
-          <Typography variant="h4">Summary</Typography>
+          <Typography variant="h4">요약</Typography>
         </Grid>
 
         <Grid item xs={12}>
@@ -58,7 +58,7 @@ export default (props) => {
                 name="acceptTerms"
               />
             }
-            label="I accept terms and conditions"
+            label="이용약관에 동의합니다."
           />
         </Grid>
       </Grid>

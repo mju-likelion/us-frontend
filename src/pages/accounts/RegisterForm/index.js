@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ["Basic information", "User details", "Summary"];
+const steps = ["기본 정보", "선택사항", "요약"];
 
 export default (props) => {
   const [completed, setCompleted] = React.useState(false);
@@ -109,7 +109,7 @@ export default (props) => {
       e.target.name === "confirmPassword" &&
       e.target.value !== state.user.password
     ) {
-      e.target.setCustomValidity("Passwords are not matching");
+      e.target.setCustomValidity("비밀번호가 다릅니다!");
     } else {
       e.target.setCustomValidity("");
     }
@@ -122,7 +122,7 @@ export default (props) => {
         delete errors[confirm.name];
         confirm.setCustomValidity("");
       } else {
-        confirm.setCustomValidity("Passwords are not matching");
+        confirm.setCustomValidity("비밀번호가 다릅니다!");
         errors[confirm.name] = confirm.validationMessage;
       }
     }
@@ -149,7 +149,7 @@ export default (props) => {
               const labelProps = {};
               if (isStepOptional(index)) {
                 labelProps.optional = (
-                  <Typography variant="caption">Optional</Typography>
+                  <Typography variant="caption"></Typography>
                 );
               }
 
@@ -171,7 +171,7 @@ export default (props) => {
                           variant="contained"
                           onClick={handleBack}
                         >
-                          Back
+                          뒤로
                         </Button>
                         {activeStep < steps.length - 1 && (
                           <Button
@@ -180,7 +180,7 @@ export default (props) => {
                             variant="contained"
                             color="primary"
                           >
-                            Next
+                            다음
                           </Button>
                         )}
                         {activeStep === steps.length - 1 && (
@@ -190,7 +190,7 @@ export default (props) => {
                             variant="contained"
                             color="primary"
                           >
-                            Submit
+                            제출
                           </Button>
                         )}
                       </div>
@@ -214,7 +214,7 @@ export default (props) => {
           message={
             <span className={classes.message}>
               <ErrorIcon className={classes.icon} />
-              {"Please correct the data"}
+              {"회원가입 정보를 확인해주세요."}
             </span>
           }
         />

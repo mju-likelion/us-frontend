@@ -12,7 +12,7 @@ export default (props) => {
           label="Bio"
           value={user.bio}
           name="bio"
-          placeholder="Type few words about you"
+          placeholder="본인에 대한 소개를 해주세요."
           variant="outlined"
           margin="normal"
           multiline
@@ -33,7 +33,7 @@ export default (props) => {
           name="phone_number"
           type="phone_number"
           value={user.website}
-          placeholder="Type your phone_number"
+          placeholder="휴대폰 번호를 입력해주세요."
           helperText=""
           variant="outlined"
           margin="normal"
