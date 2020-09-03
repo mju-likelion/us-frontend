@@ -40,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(3),
     marginLeft: "15px",
   },
+
+  title: {},
 }));
 
 function PostList() {
@@ -68,18 +70,28 @@ function PostList() {
           return (
             <Card className={classes.root} key={review.id}>
               <div className={classes.user}>
-                <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
+                <Avatar
+                  className={classes.avatar}
+                  alt="Remy Sharp"
+                  src={`http://localhost:8000` + review.author.avatar_url}
+                />
+                {review.author.username}
               </div>
               <CardActionArea>
                 <CardMedia>
                   <img
                     src={review.photo}
                     alt={review.title}
-                    style={{ width: "200px" }}
+                    style={{ width: "300px" }}
                   />
                 </CardMedia>
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                    className={classes.title}
+                  >
                     {review.title}
                   </Typography>
                   <Typography
