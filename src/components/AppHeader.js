@@ -200,10 +200,10 @@ function AppHeader() {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Button className={classes.logIn} href="/accounts/login">
-              LOG IN
+              로그인
             </Button>
             <Button className={classes.signUp} href="/accounts/signup">
-              SIGN UP
+              회원가입
             </Button>
             <IconButton
               aria-label="show 4 new mails"

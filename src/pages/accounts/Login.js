@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Axios from "axios";
 import { useAppContext } from "../../store";
@@ -78,9 +77,6 @@ export default function Login() {
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <Typography component="h1" variant="h4">
-          로그인
-        </Typography>
         <form className={classes.form} onSubmit={onSubmit}>
           <TextField
             className={classes.input}
@@ -124,7 +120,7 @@ export default function Login() {
             color="inherit"
             className={classes.submit}
           >
-            Sign In
+            로그인
           </Button>
         </form>
       </div>
