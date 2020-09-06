@@ -12,7 +12,7 @@ export default (props) => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <TextField
-          placeholder="Type your username here"
+          placeholder="유저 이름을 입력해주세요."
           name="username"
           label="Username"
           value={user.username}
@@ -31,7 +31,7 @@ export default (props) => {
       </Grid>
       <Grid item xs={12}>
         <TextField
-          placeholder="Type your email here"
+          placeholder="이메일을 입력해주세요."
           name="email"
           label="Email"
           value={user.email}
@@ -71,7 +71,7 @@ export default (props) => {
 
       <Grid item xs={12} lg={6}>
         <TextField
-          placeholder="Type your password here"
+          placeholder="비밀번호를 입력해주세요."
           name="password"
           label="Password"
           value={user.password}
@@ -92,7 +92,7 @@ export default (props) => {
       </Grid>
       <Grid item xs={12} lg={6}>
         <TextField
-          placeholder="Re-type your password here"
+          placeholder="비밀번호를 다시 입력해주세요."
           label="Password"
           name="confirmPassword"
           value={user.confirmPassword}

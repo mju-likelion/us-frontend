@@ -33,15 +33,9 @@ const recData = [
   ["상품3", "상품설명입니다3", 20, 30],
 ];
 
-const reviewRankData = [["review1", "review2", "review3"]];
-
-const tipRankData = [["tip1", "tip2", "tip3"]];
-
-const userRankData = [["user1", "user2", "user3"]];
-
 function Home() {
   const classes = useStyles();
-
+  //추천 상품
   const recList = recData.map((rec, index) => (
     <Recommend
       title={rec[0]}
@@ -52,43 +46,20 @@ function Home() {
     />
   ));
 
-  const reviewRankList = reviewRankData.map((reviewRank, index) => (
-    <ReviewRank
-      first={reviewRank[0]}
-      second={reviewRank[1]}
-      third={reviewRank[2]}
-      key={index}
-    />
-  ));
-
-  const tipRankList = tipRankData.map((tipRank, index) => (
-    <TipRank
-      first={tipRank[0]}
-      second={tipRank[1]}
-      third={tipRank[2]}
-      key={index}
-    />
-  ));
-
-  const userRankList = userRankData.map((userRank, index) => (
-    <UserRank
-      first={userRank[0]}
-      second={userRank[1]}
-      third={userRank[2]}
-      key={index}
-    />
-  ));
-
   return (
     <div>
       <div className={classes.Rank}>
-        {reviewRankList}
-        {tipRankList}
-        {userRankList}
+        {/* 리뷰 */}
+        <ReviewRank/>
+        {/* 꿀팁 */}
+        <TipRank/>
+        {/* 유저 */}
+        <UserRank/>
       </div>
       <br /> <br />
       <h2 className={classes.text}>우리의 추천상품</h2>
       <br />
+      {/* recList를 mapping하여 가져옴 */}
       <div className={classes.Rec}>{recList}</div>
     </div>
   );

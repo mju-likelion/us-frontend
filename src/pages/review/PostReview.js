@@ -116,7 +116,7 @@ export default function Login() {
           <DropzoneArea
             acceptedFiles={["image/*"]}
             dropzoneText={"Drag and drop an image here or click"}
-            filesLimit={3}
+            filesLimit={1}
             onChange={(files) => console.log("Files:", files)}
           />
           <Button
