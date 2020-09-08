@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   contentImage: {
     display: 'flex', 
     justifyContent: 'center',
-    columnGap: '5px'
+    columnGap: '5px',
   },
   contentText: {
     display: 'flex', 
@@ -72,6 +72,8 @@ const useStyles = makeStyles((theme) => ({
   },
   commentText: {
     marginTop: '3px',
+    display: 'flex',
+    wordBreak: 'break-all'
   },
   notchedOutline: {
     border: '2px solid #84E0CB',
@@ -103,7 +105,6 @@ function ReviewDetail() {
             명진당 리뷰
           </h1>
           <div className={classes.contentImage}>
-            <img src={require("./명진당.jpg")} alt="예시 사진" /> <br />
             <img src={require("./명진당.jpg")} alt="예시 사진" />
           </div>
           <div className={classes.contentText}>
@@ -112,7 +113,7 @@ function ReviewDetail() {
             text text text text text text text text text text text text text text text text text text text text text text text text text text text text
             text text text text text text text text text text text text text text text text text text text text text text text text text text text text
             text text text text text text text text text text text text text text text text text text text text text text text text text text text text
-            text text text text text text text text text text text text text text text text text text text text text <br /> <br />text text text text text text text
+            text text text text text text text text text text text text text text text text text text text text text text text text text text text text
             text text text text text text text text text text text text text text text text text text text text text text text text text text text text
           </div>
         </div>
