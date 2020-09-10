@@ -6,6 +6,7 @@ import AccountsRoutes from "./accounts";
 import ReviewRoutes from "./review/index";
 import Tip from "./tip/Tip";
 import Routes from "./marketplace/index";
+import MyPageRoutes from "./MyPage/index";
 
 function Root() {
   return (
@@ -15,6 +16,7 @@ function Root() {
       <Route path="/review" component={ReviewRoutes} />
       <Route path="/tip" component={Tip} />
       <Route path="/marketplace" component={Routes} />
+      <Route path="/mypage" component={MyPageRoutes} />
     </AppLayout>
   );
 }

@@ -58,8 +58,6 @@ function TipContent(props) {
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {props.content} <br />
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
           </Typography>
         </CardContent>
       </CardActionArea>
