@@ -4,8 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import { Button } from "@material-ui/core";
 import TextField from '@material-ui/core/TextField';
-
-
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   user: {
@@ -119,13 +118,15 @@ function ReviewDetail() {
         </div>
         <div className={classes.comment}>
           <div style={{height: '30px'}}>
-            <Button
-              className={classes.button}
-              variant="contained"
-              disableElevation
-            >
-              글목록
-            </Button>
+            <NavLink to='/review'>
+              <Button
+                className={classes.button}
+                variant="contained"
+                disableElevation
+              >
+                글목록
+              </Button>
+            </NavLink>
           </div>
           <div className={classes.commentContent}>
             <div className={classes.commentDetail} >
