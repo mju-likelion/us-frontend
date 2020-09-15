@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-
 import Avatar from "@material-ui/core/Avatar";
-import { Button } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import { NavLink } from "react-router-dom";
+import { axiosInstance } from "api";
+import { useRouteMatch } from "react-router-dom";
+import CommentList from "./CommentList";
 
 const useStyles = makeStyles((theme) => ({
   user: {
@@ -33,160 +32,67 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     columnGap: "5px",
-  },
-  contentText: {
-    display: "flex",
-    justifyContent: "center",
-    marginTop: "15px",
+    marginRight: "40px",
+    marginLeft: "40px",
+    marginBottom: "50px",
   },
   comment: {
     display: "inline",
     width: "30%",
     marginLeft: "3%",
   },
-  button: {
-    color: "white",
-    backgroundColor: "#84E0CB",
-    fontWeight: "bold",
-    float: "right",
-  },
-  commentContent: {},
-  commentDetail: {
-    border: "2px solid #84E0CB",
-    padding: "7px",
-    marginTop: "20px",
-    borderRadius: "20px",
-  },
-  commentUser: {
-    display: "flex",
-    columnGap: "2px",
-  },
-  commentTime: {
-    color: "#636e72",
-    fontSize: "x-small",
-    marginLeft: "5px",
-    paddingTop: "5px",
-  },
-  commentText: {
-    marginTop: "3px",
-    display: "flex",
-    wordBreak: "break-all",
-  },
-  notchedOutline: {
-    border: "2px solid #84E0CB",
-    borderRadius: "20px",
-    "&:hover": {
-      borderColor: "#84E0CB",
-      borderWidth: 2,
-    },
-  },
 }));
 
-function ReviewDetail() {
+function ReviewDetail({ post }) {
+  const [postList, setPostList] = useState([]);
+
+  const id = useRouteMatch();
+
+  const apiUrl = `/api/posts/${id.params.id}`;
+
+  useEffect(() => {
+    axiosInstance
+      .get(apiUrl)
+      .then((response) => {
+        const { data } = response;
+        // console.log("loaded response :", response);
+        setPostList(data);
+      })
+      .catch((error) => {
+        // error.response;
+      });
+  }, []);
+
   const classes = useStyles();
+  // console.log(id.params);
+
+  // console.log(postList.author?.username);
   return (
     <div>
-      {" "}
       <br />
       <div className={classes.contentAndComment}>
         <div className={classes.content}>
           <div className={classes.user}>
-            <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
-            User
+            <Avatar
+              className={classes.avatar}
+              alt="User"
+              src={postList.author?.avatar_url}
+            />
+            {postList.author?.username}
           </div>
-          <h1 className={classes.contentTitle}>명진당 리뷰</h1>
+          <h1 className={classes.contentTitle}>{postList.title}</h1>
           <div className={classes.contentImage}>
-            {/* <img src={require("./명진당.jpg")} alt="예시 사진" /> */}
+            <img
+              src={postList.photo}
+              alt={postList.title}
+              style={{ width: "100%" }}
+            />
           </div>
-          <div className={classes.contentText}>
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text text text text text text text text text text text text text
-            text
-          </div>
+          <div>{postList.caption}</div>
         </div>
+
         <div className={classes.comment}>
-          <div style={{ height: "30px" }}>
-            <NavLink to="/review">
-              <Button
-                className={classes.button}
-                variant="contained"
-                disableElevation
-              >
-                글목록
-              </Button>
-            </NavLink>
-          </div>
-          <div className={classes.commentContent}>
-            <div className={classes.commentDetail}>
-              <div className={classes.commentUser}>
-                <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
-                User
-                <div className={classes.commentTime}>1시간 전</div>
-              </div>
-              <div className={classes.commentText}>
-                HiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHiHi
-              </div>
-            </div>
-            <div className={classes.commentDetail}>
-              <div className={classes.commentUser}>
-                <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
-                User
-                <div className={classes.commentTime}>1시간 전</div>
-              </div>
-              <div className={classes.commentText}>HiHiHi</div>
-            </div>
-            <div className={classes.commentDetail}>
-              <div className={classes.commentUser}>
-                <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
-                User
-                <div className={classes.commentTime}>1시간 전</div>
-              </div>
-              <div className={classes.commentText}>HiHiHi</div>
-            </div>
-            <div className={classes.commentDetail}>
-              <div className={classes.commentUser}>
-                <Avatar className={classes.avatar} alt="Remy Sharp" src="" />
-                User
-                <div className={classes.commentTime}>1시간 전</div>
-              </div>
-              <div className={classes.commentText}>HiHiHi</div>
-            </div>
-          </div>{" "}
-          <br />
-          <TextField
-            id="outlined-multiline-static"
-            label="우리의 댓글"
-            multiline
-            rows={4}
-            variant="outlined"
-            fullWidth="true"
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-          />
-          <Button
-            className={classes.button}
-            style={{ marginTop: "15px" }}
-            variant="contained"
-            disableElevation
-          >
-            확인
-          </Button>
+          <CommentList post={post} />
         </div>
       </div>
     </div>
