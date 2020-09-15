@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Axios from "axios";
+import { axiosInstance } from "api";
 import UserPreferences from "./UserPreferences";
 import UserDetails from "./UserDetails";
 import UserSummary from "./UserSummary";
@@ -80,7 +80,7 @@ export default (props) => {
       setCompleted(true);
     }
     if (activeStep === 2) {
-      Axios.post("http://localhost:8000/accounts/signup/", state.user);
+      axiosInstance.post("/accounts/signup/", state.user);
     }
   };
 

@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
-import Axios from "axios";
+import { axiosInstance } from "api";
 import { useAppContext } from "../../store";
 import { setToken } from "store";
 import { useHistory, useLocation } from "react-router-dom";
@@ -53,7 +53,8 @@ export default function Login() {
 
     const data = inputs;
 
-    Axios.post("http://localhost:8000/accounts/token/", data)
+    axiosInstance
+      .post("/accounts/token/", data)
       .then((response) => {
         const {
           data: { token: jwtToken },
