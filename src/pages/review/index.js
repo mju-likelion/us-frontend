@@ -9,7 +9,8 @@ function ReviewRoutes({ match }) {
   return (
     <>
       <Route exact path={match.url + "/"} component={ReviewList} />
-      <Route exact path={match.url + "/detail"} component={ReviewDetail} />
+      <Route exact path={match.url + "/:id(\\w)"} component={ReviewDetail} />
+
       <LoginRequiredRoute
         exact
         path={match.url + "/post"}
