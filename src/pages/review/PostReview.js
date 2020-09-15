@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Axios from "axios";
 import { useAppContext } from "../../store";
-import { setToken } from "store";
+// import { setToken } from "store";
 import { useHistory, useLocation } from "react-router-dom";
 import { DropzoneArea } from "material-ui-dropzone";
 const useStyles = makeStyles((theme) => ({
@@ -41,35 +41,65 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
-  const { dispatch } = useAppContext();
+  // const { dispatch } = useAppContext();
 
-  const [inputs, setInputs] = useState({ username: "", password: "" });
+  const {
+    store: { jwtToken },
+  } = useAppContext();
 
-  const location = useLocation();
+  const [inputs, setInputs] = useState({ title: "", caption: "" });
+
+  const [file, setFile] = useState();
+
+  // const location = useLocation();
 
   const history = useHistory();
 
-  const { from: loginRedirectUrl } = location.state || {
-    from: { pathname: "/" },
-  };
+  // const { from: loginRedirectUrl } = location.state || {
+  //   from: { pathname: "/" },
+  // };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const data = inputs;
+    const formData = new FormData();
 
-    Axios.post("http://localhost:8000/accounts/token/", data)
-      .then((response) => {
-        const {
-          data: { token: jwtToken },
-        } = response;
+    formData.append("title", data.title);
+    formData.append("caption", data.caption);
+    // formData.append("photo", file);
 
-        dispatch(setToken(jwtToken));
-        history.push(loginRedirectUrl);
-      })
-      .catch((error) => {
-        console.log("error :", error);
-      });
+    // for (let value of formData.values()) {
+    //   console.log(value);
+    // }
+    const headers = { Authorization: `JWT ${jwtToken}` };
+    try {
+      const response = Axios.post(
+        "http://localhost:8000/api/posts/",
+        formData,
+        {
+          headers,
+        }
+      );
+      console.log("success response :", response);
+      history.push("/");
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      }
+    }
+    // Axios.post("http://localhost:8000/accounts/token/", data)
+    //   .then((response) => {
+    //     const {
+    //       data: { token: jwtToken },
+    //     } = response;
+
+    //     dispatch(setToken(jwtToken));
+    //     history.push(loginRedirectUrl);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error :", error);
+    //   });
   };
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -92,10 +122,10 @@ export default function Login() {
             margin="normal"
             required
             fullWidth
-            id="username"
+            id="title"
             label="제목"
-            name="username"
-            autoComplete="username"
+            name="title"
+            autoComplete="title"
             autoFocus
             onChange={onChange}
           />
@@ -105,19 +135,19 @@ export default function Login() {
             margin="normal"
             required
             fullWidth
-            name="password"
+            name="caption"
             label="본문"
-            id="password"
+            id="caption"
             multiline
             rows={25}
-            autoComplete="current-password"
+            autoComplete="current-caption"
             onChange={onChange}
           />
           <DropzoneArea
             acceptedFiles={["image/*"]}
-            dropzoneText={"Drag and drop an image here or click"}
+            dropzoneText={""}
             filesLimit={1}
-            onChange={(files) => console.log("Files:", files)}
+            onChange={(files) => setFile(files)}
           />
           <Button
             type="submit"
