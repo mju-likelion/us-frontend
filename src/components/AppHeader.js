@@ -16,6 +16,10 @@ import Button from "@material-ui/core/Button";
 import PersonIcon from "@material-ui/icons/Person";
 import { makeStyles } from "@material-ui/core";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -65,13 +69,33 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "5px",
     color: "#84E0CB",
   },
+
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
 }));
 
 function AppHeader() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
+  const handleModalOpen = () => {
+    setOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setOpen(false);
+  };
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -214,6 +238,29 @@ function AppHeader() {
                 <MailIcon style={{ color: "#84E0CB" }} />
               </Badge>
             </IconButton>
+            <IconButton type="button" onClick={handleModalOpen}>
+              <NotificationsIcon style={{ color: "#84E0CB" }}/>
+            </IconButton>
+            <Modal
+              aria-labelledby="transition-modal-title"
+              aria-describedby="transition-modal-description"
+              className={classes.modal}
+              open={open}
+              onClose={handleModalClose}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <div className={classes.paper}>
+                  <h3>🔔알림🔔</h3>
+                  <p>✔ 택배 배송을 시작했습니다.</p>
+                  <p>✔ 주문이 완료되었습니다.</p>
+                </div>
+              </Fade>
+            </Modal>
             <IconButton
               aria-label="show 17 new notifications"
               color="default"

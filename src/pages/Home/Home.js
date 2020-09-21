@@ -57,7 +57,7 @@ function Home() {
         <UserRank/>
       </div>
       <br /> <br />
-      <h2 className={classes.text}>우리의 추천상품</h2>
+      <h2 className={classes.text}>실시간 인기 장터</h2>
       <br />
       {/* recList를 mapping하여 가져옴 */}
       <div className={classes.Rec}>{recList}</div>
