@@ -1,135 +1,112 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import Axios from "axios";
+import { Button, Form, Input, Upload } from "antd";
+import { axiosInstance } from "api";
 import { useAppContext } from "../../store";
-import { setToken } from "store";
-import { useHistory, useLocation } from "react-router-dom";
-import { DropzoneArea } from "material-ui-dropzone";
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-
-  form: {
-    width: "100%",
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-    background: "#84E0CB",
-    color: "white",
-    "&:hover": {
-      backgroundColor: "#84E0CB",
-    },
-  },
-  input: {
-    borderRadius: 4,
-    boxShadow: `2px 2px 5px 1px rgba(0, 0, 0, 0.2)`,
-  },
-  upload: {
-    // display: "none",
-  },
-}));
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const classes = useStyles();
-
-  const { dispatch } = useAppContext();
-
-  const [inputs, setInputs] = useState({ username: "", password: "" });
-
-  const location = useLocation();
+  const {
+    store: { jwtToken },
+  } = useAppContext();
 
   const history = useHistory();
 
-  const { from: loginRedirectUrl } = location.state || {
-    from: { pathname: "/" },
+  const [fileList, setFileList] = useState([]);
+
+  const [fieldErrors] = useState({});
+
+  const handleUploadChange = ({ fileList }) => {
+    setFileList(fileList);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const handleFinish = async (fieldValues) => {
+    const {
+      title,
+      caption,
+      photo: { fileList },
+    } = fieldValues;
 
-    const data = inputs;
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("caption", caption);
+    fileList.forEach((file) => {
+      formData.append("photo", file.originFileObj);
+    });
 
-    Axios.post("http://localhost:8000/accounts/token/", data)
-      .then((response) => {
-        const {
-          data: { token: jwtToken },
-        } = response;
-
-        dispatch(setToken(jwtToken));
-        history.push(loginRedirectUrl);
-      })
-      .catch((error) => {
-        console.log("error :", error);
+    const headers = { Authorization: `JWT ${jwtToken}` };
+    try {
+      const response = await axiosInstance.post("/api/posts/", formData, {
+        headers,
       });
-  };
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setInputs((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+      console.log("success response :", response);
+      history.push("/");
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      }
+    }
   };
 
   return (
-    <Container component="main" maxWidth="sm">
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h4">
-          글쓰기
-        </Typography>
-        <form className={classes.form} onSubmit={onSubmit}>
-          <TextField
-            className={classes.input}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="제목"
-            name="username"
-            autoComplete="username"
-            autoFocus
-            onChange={onChange}
-          />
-          <TextField
-            className={classes.input}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="본문"
-            id="password"
-            multiline
-            rows={25}
-            autoComplete="current-password"
-            onChange={onChange}
-          />
-          <DropzoneArea
-            acceptedFiles={["image/*"]}
-            dropzoneText={"Drag and drop an image here or click"}
-            filesLimit={1}
-            onChange={(files) => console.log("Files:", files)}
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="inherit"
-            className={classes.submit}
-          >
-            글쓰기
-          </Button>
-        </form>
-      </div>
-    </Container>
+    <Form {...layout} onFinish={handleFinish} autoComplete={"false"}>
+      <Form.Item
+        label="제목"
+        name="title"
+        rules={[{ required: true, message: "제목을 입력해주세요." }]}
+        hasFeedback
+        {...fieldErrors.title}
+        {...fieldErrors.non_field_errors}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="내용"
+        name="caption"
+        rules={[{ required: true, message: "내용을 입력해주세요." }]}
+        hasFeedback
+        {...fieldErrors.caption}
+      >
+        <Input.TextArea rows={20} />
+      </Form.Item>
+
+      <Form.Item
+        label="사진"
+        name="photo"
+        rules={[{ required: true, message: "사진을 입력해주세요." }]}
+        hasFeedback
+        {...fieldErrors.photo}
+      >
+        <Upload
+          listType="picture-card"
+          fileList={fileList}
+          beforeUpload={() => {
+            return false;
+          }}
+          onChange={handleUploadChange}
+        >
+          {fileList.length > 0 ? null : (
+            <div>
+              <div className="ant-upload-text">Upload</div>
+            </div>
+          )}
+        </Upload>
+      </Form.Item>
+
+      <Form.Item {...tailLayout}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
   );
 }
+
+const layout = {
+  labelCol: { span: 8 },
+  wrapperCol: { span: 8 },
+};
+
+const tailLayout = {
+  wrapperCol: { offset: 8, span: 16 },
+};

@@ -4,6 +4,7 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./store";
 import Root from "./pages/index";
+import "antd/dist/antd.css";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -13,4 +14,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
-// 테스트
