@@ -7,7 +7,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
-  usedTradingBar: {
+  reviewBar: {
     width: "40%",
   },
   button: {
@@ -27,11 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function UsedTradingBar() {
+function ReviewBar() {
   const classes = useStyles();
   return (
     <div>
-      <Box className={classes.usedTradingBar} mx="auto">
+      <Box className={classes.reviewBar} mx="auto">
         <Box className={classes.search}>
           <InputBase
             placeholder="Hello"
@@ -64,7 +64,7 @@ function UsedTradingBar() {
               className={classes.button}
               variant="contained"
               disableElevation
-              href="/usedTrading/post"
+              href="/review/post"
             >
               글쓰기
             </Button>
@@ -75,4 +75,4 @@ function UsedTradingBar() {
   );
 }
 
-export default UsedTradingBar;
+export default ReviewBar;
