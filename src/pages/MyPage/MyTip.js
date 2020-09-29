@@ -1,5 +1,4 @@
 import React from 'react';
-import TipContent from '../tip/TipContent';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +17,7 @@ function MyTip() {
   const classes = useStyles(); 
   return (
     <div className={classes.content}>
-      <TipContent />
+      
     </div>
   );
 }
