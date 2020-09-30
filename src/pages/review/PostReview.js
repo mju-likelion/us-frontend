@@ -21,12 +21,14 @@ export default function Login() {
 
   const handleFinish = async (fieldValues) => {
     const {
+      board_type,
       title,
       caption,
       photo: { fileList },
     } = fieldValues;
 
     const formData = new FormData();
+    formData.append("board_type", board_type)
     formData.append("title", title);
     formData.append("caption", caption);
     fileList.forEach((file) => {
@@ -49,6 +51,16 @@ export default function Login() {
 
   return (
     <Form {...layout} onFinish={handleFinish} autoComplete={"false"}>
+      <Form.Item
+        label="타입"
+        name="board_type"
+        rules={[{ required: true, message: "타입을 입력하세요" }]}
+        hasFeedback
+        {...fieldErrors.title}
+        {...fieldErrors.non_field_errors}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item
         label="제목"
         name="title"
