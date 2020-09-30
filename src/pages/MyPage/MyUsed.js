@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import UsedTradingContent from '../marketplace/UsedTrading/UsedTradingContent'
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -18,7 +17,7 @@ function MyUsed() {
   const classes = useStyles();
   return (
     <div className={classes.content}>
-      <UsedTradingContent />
+      
     </div>
   );
 }

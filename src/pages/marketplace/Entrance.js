@@ -44,7 +44,7 @@ function Entrance() {
     <div>
       <br /> <br /> <br />
       <div className={classes.content}>
-        <NavLink to="/marketplace/used_trading" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>중고거래</Button></NavLink>
+        <NavLink to="/marketplace/usedTrading" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>중고거래</Button></NavLink>
         <NavLink to="/marketplace/barter" activeClassName="activation" style={{textDecoration: 'none'}}><Button className={classes.btn}>물물교환</Button></NavLink>
       </div>
       <div className={classes.content}>

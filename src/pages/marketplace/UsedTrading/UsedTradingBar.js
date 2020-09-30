@@ -64,7 +64,7 @@ function UsedTradingBar() {
               className={classes.button}
               variant="contained"
               disableElevation
-              href="/usedTrading/post"
+              href="/marketplace/usedTrading/post"
             >
               글쓰기
             </Button>

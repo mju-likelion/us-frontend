@@ -20,6 +20,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -174,47 +175,7 @@ function AppHeader() {
     <div className={classes.grow}>
       <AppBar position="static" className={classes.mainBar} elevation={0}>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className="menuButton"
-            aria-label="open drawer"
-            aria-haspopup="true"
-            onClick={handleClick}
-          >
-            <MenuIcon style={{ color: "#84E0CB" }} />
-          </IconButton>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-          >
-            <MenuItem
-              onClick={handleClose}
-              style={{ backgroundColor: "#84E0CB", color: "white" }}
-            >
-              로그인
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              style={{ backgroundColor: "#84E0CB", color: "white" }}
-            >
-              회원가입
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              style={{ backgroundColor: "#84E0CB", color: "white" }}
-            >
-              장바구니
-            </MenuItem>
-            <MenuItem
-              onClick={handleClose}
-              style={{ backgroundColor: "#84E0CB", color: "white" }}
-            >
-              마이페이지
-            </MenuItem>
-          </Menu>
+          <ShoppingCartIcon style={{ color: "#84E0CB" }}/>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/">
               <img src={require("./logo-us.svg")} alt="우리 로고 이미지" />
@@ -223,12 +184,6 @@ function AppHeader() {
           </Typography>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <Button className={classes.logIn} href="/accounts/login">
-              로그인
-            </Button>
-            <Button className={classes.signUp} href="/accounts/signup">
-              회원가입
-            </Button>
             <IconButton
               aria-label="show 4 new mails"
               color="default"
