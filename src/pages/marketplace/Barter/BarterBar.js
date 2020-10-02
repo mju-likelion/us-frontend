@@ -64,7 +64,7 @@ function BarterBar() {
               className={classes.button}
               variant="contained"
               disableElevation
-              href="/barter/post"
+              href="/marketplace/barter/post"
             >
               글쓰기
             </Button>

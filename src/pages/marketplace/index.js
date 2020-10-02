@@ -6,6 +6,8 @@ import BarterRoutes from './Barter/index';
 import LoginRequiredRoute from 'utils/LoginRequiredRoute';
 import PostUsedTrading from './UsedTrading/PostUsedTrading'
 import UsedTradingDetail from './UsedTrading/UsedTradingDetail'
+import BarterDetail from './Barter/BarterDetail'
+import PostBarter from './Barter/PostBarter'
 
 function MarketplaceRoutes({ match }) {
   return (
@@ -19,6 +21,12 @@ function MarketplaceRoutes({ match }) {
         component={PostUsedTrading}
       />
       <Route exact path={match.url + "/barter"} component={BarterRoutes} />
+      <Route exact path={match.url + "/barter/:id(\\w)" } component={BarterDetail} />
+      <LoginRequiredRoute 
+        exact
+        path={match.url + "/barter/post"}
+        component={PostBarter}
+      />
     </>
   );
 }

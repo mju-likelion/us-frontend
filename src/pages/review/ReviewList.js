@@ -107,9 +107,11 @@ function PostList() {
                 <Button size="small" color="primary">
                   <FavoriteIcon style={{ color: "#84E0CB" }} />
                 </Button>
+                {review.like}
                 <Button size="small" color="primary">
                   <CommentIcon style={{ color: "#84E0CB" }} />
                 </Button>
+                {review.comment}
               </CardActions>
             </Card>
           );

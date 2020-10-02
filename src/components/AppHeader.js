@@ -10,7 +10,6 @@ import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
 import Button from "@material-ui/core/Button";
 import PersonIcon from "@material-ui/icons/Person";
@@ -20,7 +19,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -63,12 +61,14 @@ const useStyles = makeStyles((theme) => ({
   logIn: {
     marginRight: "5px",
     color: "#84E0CB",
+    fontWeight: 'bold',
   },
 
   signUp: {
     marginRight: "5px",
     marginLeft: "5px",
     color: "#84E0CB",
+    fontWeight: 'bold',
   },
 
   modal: {
@@ -115,14 +115,6 @@ function AppHeader() {
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   const menuId = "primary-search-account-menu";
@@ -175,7 +167,12 @@ function AppHeader() {
     <div className={classes.grow}>
       <AppBar position="static" className={classes.mainBar} elevation={0}>
         <Toolbar>
-          <ShoppingCartIcon style={{ color: "#84E0CB" }}/>
+          <Button className={classes.logIn} href="/accounts/login">
+              로그인
+          </Button>
+          <Button className={classes.signUp} href="/accounts/signup">
+              회원가입
+          </Button>
           <Typography className={classes.title} variant="h6" noWrap>
             <Link to="/">
               <img src={require("./logo-us.svg")} alt="우리 로고 이미지" />
@@ -219,7 +216,7 @@ function AppHeader() {
             <IconButton
               aria-label="show 17 new notifications"
               color="default"
-              href="/accounts/profile"
+              href="/mypage"
             >
               <PersonIcon style={{ color: "#84E0CB" }} />
             </IconButton>
