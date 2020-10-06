@@ -7,6 +7,7 @@ import ReviewRoutes from "./review/index";
 import TipRoutes from "./tip/index";
 import MarketplaceRoutes from "./marketplace/index";
 import MyPageRoutes from "./MyPage/index";
+import Follow from "./Follow";
 
 function Root() {
   return (
@@ -17,6 +18,7 @@ function Root() {
       <Route path="/tip" component={TipRoutes} />
       <Route path="/marketplace" component={MarketplaceRoutes} />
       <Route path="/mypage" component={MyPageRoutes} />
+      <Route path="/follow" component={Follow} />
     </AppLayout>
   );
 }
